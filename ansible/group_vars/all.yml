@@ -1,0 +1,32 @@
+# project_name: travelmemory
+
+# node_version: 20
+
+# backend_port: 5000
+
+# mongodb_port: 27017
+
+# mongodb_database: travelmemory
+
+# mongodb_user: traveladmin
+
+# mongodb_password: TravelMemory123
+
+
+
+project_name: travelmemory
+
+node_version: 20
+
+backend_port: 5000
+
+mongodb_port: 27017
+
+frontend_port: 3000
+
+mongodb_database: travelmemory
+
+mongodb_user: traveladmin
+
+mongodb_password: TravelMemory@123
+

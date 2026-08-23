@@ -128,3 +128,59 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+# ==============================
+
+# Terraform
+
+# ==============================
+
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraform.lock.hcl
+
+# Terraform plan files
+
+*.tfplan
+
+# Local variable files (keep example if needed)
+
+terraform.tfvars
+*.auto.tfvars
+
+# ==============================
+
+# Environment files
+
+# ==============================
+
+backend/.env
+frontend/.env
+
+# ==============================
+
+# Node.js
+
+# ==============================
+
+**/node_modules/
+**/build/
+**/dist/
+
+# Logs
+
+*.log
+
+# OS / Editor
+
+.vscode/
+.DS_Store
+Thumbs.db

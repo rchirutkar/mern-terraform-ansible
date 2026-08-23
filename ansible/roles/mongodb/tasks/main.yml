@@ -1,0 +1,60 @@
+---
+- name: Import MongoDB GPG key
+  shell: |
+    curl -fsSL https://pgp.mongodb.com/server-8.0.asc | \
+    gpg --dearmor -o /usr/share/keyrings/mongodb-server-8.0.gpg
+  args:
+    creates: /usr/share/keyrings/mongodb-server-8.0.gpg
+
+- name: Add MongoDB repository
+  copy:
+    dest: /etc/apt/sources.list.d/mongodb-org-8.0.list
+    content: |
+      deb [ signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Install MongoDB
+  apt:
+    name: mongodb-org
+    state: present
+
+- name: Enable MongoDB service
+  systemd:
+    name: mongod
+    enabled: yes
+    state: started
+
+- name: Verify MongoDB version
+  command: mongod --version
+  register: mongodb_version
+
+- debug:
+    var: mongodb_version.stdout_lines
+
+# Configure MongoDB to Listen on Private IP Only
+- name: Configure MongoDB bind IP
+  template:
+    src: mongod.conf.j2
+    dest: /etc/mongod.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Restart MongoDB
+  systemd:
+    name: mongod
+    state: restarted
+
+# Create Database User Automatically
+- name: Create MongoDB admin user
+  shell: |
+    mongosh admin --eval '
+    db.createUser({
+      user: "{{ mongodb_user }}",
+      pwd: "{{ mongodb_password }}",
+      roles:[{role:"root",db:"admin"}]
+    })'
+  ignore_errors: yes

@@ -1,0 +1,30 @@
+---
+- name: Download NodeSource setup script
+  shell: curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+  args:
+    executable: /bin/bash
+
+- name: Install Node.js
+  apt:
+    name: nodejs
+    state: present
+    update_cache: yes
+
+- name: Install PM2 globally
+  npm:
+    name: pm2
+    global: yes
+
+- name: Verify Node version
+  command: node -v
+  register: node_version_output
+
+- debug:
+    var: node_version_output.stdout
+
+- name: Verify PM2 version
+  command: pm2 -v
+  register: pm2_version_output
+
+- debug:
+    var: pm2_version_output.stdout

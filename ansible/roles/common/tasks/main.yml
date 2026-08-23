@@ -1,0 +1,21 @@
+---
+- name: Update apt packages
+  apt:
+    update_cache: yes
+    upgrade: yes
+
+- name: Install common utilities
+  apt:
+    name:
+      - git
+      - curl
+      - unzip
+      - wget
+      - vim
+      - htop
+      - jq
+      - software-properties-common
+      - apt-transport-https
+      - ca-certificates
+      - gnupg
+    state: present
