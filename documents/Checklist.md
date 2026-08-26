@@ -218,6 +218,13 @@ To verify that everything works seamlessly without risking a broken production l
 <br>
 
 ---
+```mermaid
+xychart-beta horizontal
+    title "Estimated monthly AWS cost (assignment resources)"
+    x-axis [NAT Gateway, S3 State Bucket, Elastic IP, MongoDB EC2, Web EC2]
+    y-axis "Approximate Cost ($)" 0 --> 800
+    bar [0, 15, 0, 750, 750]
+```
 
 ## Phase C — Cost Optimization (Recommended)
 
@@ -416,75 +423,6 @@ mern-terraform-ansible/
 ├── backend/
 └── frontend/
 ```
-This is submission quality.
+This is submission.
 
 ---
-
-<br>
-
-
-## Final Deliverables Status
-
-🚀 What We'll Build Next (This is Bigger Than the Assignment)
-
-I have all the context from both of your projects now:
-
-PHP 7.3 Production Infrastructure (AWS Sydney, Terraform, IAM, existing S3 integration, CI/CD).
-
-TravelMemory MERN Assignment (AWS Mumbai, Terraform, Ansible, MongoDB, Nginx, PM2).
-
-Next Conversation Deliverables (Premium Project Package)
-
-I'll generate a complete professional package for both projects:
-
-📘 Package 1 — Assignment Report (50–70 pages)
-
-Cover page.
-
-Abstract.
-
-Objectives.
-
-Architecture.
-
-Terraform explanation.
-
-Ansible explanation.
-
-Deployment steps.
-
-Testing.
-
-Troubleshooting.
-
-Cost optimization.
-
-Conclusion.
-
-📗 Package 2 — AWS Architecture Diagram
-
-Using AWS icons, matching your exact infrastructure.
-
-📙 Package 3 — Terraform & Ansible Documentation
-
-Every module explained with variables, outputs, dependencies, and diagrams.
-
-📕 Package 4 — DevOps Interview/Viva Notes
-
-50–70 questions based on everything we built together, including the debugging scenarios (MongoDB auth, Nginx proxy, Elastic IP, NAT Gateway lifecycle, IAM roles, remote state, etc.).
-
-✅ My Recommendation Before Destroying Infrastructure
-
-Do these in order:
-
-✅ Capture all screenshots.
-
-✅ Verify GitHub repository one last time.
-
-✅ Download/backup .env, Nginx config, and Terraform outputs.
-
-✅ Run terraform destroy.
-
-✅ Keep only the S3 Terraform state bucket and GitHub repository.
-
-That leaves your AWS account with almost zero ongoing cost while preserving everything needed to recreate the project later.
