@@ -1,0 +1,40 @@
+application_url = "http://3.7.133.46"
+mongo_instance_name = "travelmemory-assignment-mongodb"
+mongodb_private_ip = "10.20.2.110"
+private_subnets = [
+  "subnet-093776b2c0b2bad76",
+]
+public_subnets = [
+  "subnet-0ba34f968e4382c44",
+]
+vpc_id = "vpc-0b7b0242b7c6af5b7"
+web_instance_name = "travelmemory-assignment-web"
+web_private_ip = "10.20.1.125"
+web_public_ip = "13.234.37.208"
+
+
+########################
+# terraform state list #
+########################
+
+data.aws_ami.ubuntu
+module.elastic_ip.aws_eip.web
+module.iam.data.aws_iam_policy_document.ec2_assume_role
+module.iam.aws_iam_instance_profile.ec2
+module.iam.aws_iam_role.ec2
+module.iam.aws_iam_role_policy_attachment.ssm
+module.mongodb_ec2.data.aws_ami.ubuntu
+module.mongodb_ec2.aws_instance.mongodb
+module.security_groups.aws_security_group.mongodb
+module.security_groups.aws_security_group.web
+module.vpc.aws_internet_gateway.this
+module.vpc.aws_route_table.public
+module.vpc.aws_route_table_association.public["0"]
+module.vpc.aws_subnet.private["0"]
+module.vpc.aws_subnet.public["0"]
+module.vpc.aws_vpc.this
+module.web_ec2.data.aws_ami.ubuntu
+module.web_ec2.aws_instance.web
+
+####################################################
+
