@@ -218,13 +218,6 @@ To verify that everything works seamlessly without risking a broken production l
 <br>
 
 ---
-```mermaid
-xychart-beta horizontal
-    title "Estimated monthly AWS cost (assignment resources)"
-    x-axis [NAT Gateway, S3 State Bucket, Elastic IP, MongoDB EC2, Web EC2]
-    y-axis "Approximate Cost ($)" 0 --> 800
-    bar [0, 15, 0, 750, 750]
-```
 
 ## Phase C — Cost Optimization (Recommended)
 
@@ -235,6 +228,13 @@ What to Delete vs Keep
 
 ![Alt text for my chart](./images/Estimated%20monthly%20AWS%20cost%20(assignment%20resources).png)
 
+```mermaid
+xychart-beta horizontal
+    title "Estimated Monthly AWS Cost (INR)"
+    x-axis ["Web EC2","MongoDB EC2","Elastic IP","S3 State Bucket","NAT Gateway"]
+    y-axis "Monthly Cost (₹)" 0 --> 800
+    bar [750,750,0,15,0]
+```
 
 Approximate total: ₹1,500–₹1,700/month if both EC2 instances keep running.
 

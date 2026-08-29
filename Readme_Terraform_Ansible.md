@@ -23,6 +23,10 @@ The solution provisions AWS infrastructure, configures application servers autom
 
 Internet → Elastic IP → Nginx (Web EC2) → Express Backend (PM2) → MongoDB (Private EC2)
 
+### Architecture Dia
+
+![Alt text for my chart](./documents/images/Architecture_dia.png)
+
 ---
 
 ## Technology Stack
